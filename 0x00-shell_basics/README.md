@@ -1,0 +1,1 @@
+# In this folder are found all the task for DAY 2 WEEK 0 at Holberton
