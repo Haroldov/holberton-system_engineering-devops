@@ -1,2 +1,2 @@
 #!/bin/bash
-filexs /tmp/iamafile     
+file /tmp/iamafile     
