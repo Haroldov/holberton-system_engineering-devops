@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -e {a..o}{a..n}"\n" {o..z}{p..z}"\n"
+echo -e {a..z}{a..z}"\n" | grep -v "oo" | head -n -1
