@@ -1,0 +1,1 @@
+# This file is about this projects "Shell, init files, variables and expansions"
