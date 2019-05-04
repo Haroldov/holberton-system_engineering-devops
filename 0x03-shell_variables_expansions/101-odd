@@ -1,0 +1,2 @@
+#!/bin/bash
+cat -n | grep -sE "$(seq -f "%6g" 1 2 1000)" | cut -b 8-
