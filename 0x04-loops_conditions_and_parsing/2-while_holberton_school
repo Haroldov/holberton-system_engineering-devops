@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# doc
+
 i=0
 while ((i < 10)); do
     echo "Holberton School"

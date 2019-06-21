@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# doc
+
 hour=0
 while [ $hour -ne 12 ]; do
     min=1
