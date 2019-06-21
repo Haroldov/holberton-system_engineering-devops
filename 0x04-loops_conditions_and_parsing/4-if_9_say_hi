@@ -2,5 +2,8 @@
 i=0
 while ((i < 10)); do
     echo "Holberton School"
+    if [ $i = 8 ]; then
+	echo "hi"
+    fi
     ((i++))
 done
