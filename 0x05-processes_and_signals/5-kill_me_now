@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # doc
 
-id=$(ps f -eo pid,command | grep "bash ./4-to_infinity_and_beyond" | head -n 1 | cut -d " " -f 2-2)
-kill -9 $id
+id=$(ps -eo pid,command | grep "./4-to_infinity_and_beyond" | head -n 1 | cut -d " " -f 2-2)
+kill -15 $id
