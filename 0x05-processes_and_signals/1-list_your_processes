@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# doc
+
+ps -eo user,pid,pcpu,pmem,vsz,rss,tty,stat,start,time,command
