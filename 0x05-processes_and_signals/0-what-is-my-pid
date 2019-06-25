@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # doc
 
-ps | grep bash | cut -d " " -f 2-2 | head -n 1
+pgrep bash | cut -d " " -f 2-2 | head -n 1
