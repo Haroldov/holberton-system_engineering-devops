@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# doc
+
+nc -l 98

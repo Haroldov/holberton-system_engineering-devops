@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# doc
+
+ifconfig | grep -oP "(?<=inet addr:).+?(?= )"
