@@ -3,7 +3,6 @@
 
 cp /etc/hosts ~/hosts.bk
 rm -f ~/hosts.new && touch ~/hosts.new
-echo -e '127.0.0.2\tlocalhost' >> ~/hosts.new
-echo -e '8.8.8.8  \tfacebook.com' >> ~/hosts.new
+{ echo -e '127.0.0.2\tlocalhost'; echo -e '8.8.8.8  \tfacebook.com'; } >> ~/hosts.new
 cat ~/hosts.bk >> ~/hosts.new
 cp -f ~/hosts.new /etc/hosts
