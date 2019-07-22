@@ -42,3 +42,25 @@
 
 
 This one has a special meaning because it assigns one or more connections immediately depending on real time monitoring. This depends on the current number of connections per node or the fastes node response time.
+
+# 2. Secured and monitored web infrastructure
+
+* We added a complete new server to increase redundancy. Moreover, firewall was added to each server in order to increase security, in this way servers only can be accessed from the LB. We added 1 SSL certificate in order to use the HTTPS protocol and encrypt all the information. Finally, we added a cloud monitoring system in order to keep track of the system.
+
+* The firewalls are for not allowing incoming HTTP requests directly to the servers besides the LB and the monitoring system.
+
+* The traffic is served over HTTPS in order to encrypt information and have more security.
+
+* Monitoring is used for keep track of the system like: SSL not expired, Query Per Seconds, RAM, CPU, Disk, Network.
+
+* The monitoring tool fakes a user request and measure all the variables.
+
+* The QPS can be measure by sending a lot of changing in the password of a user and measuring the response of all of them.
+
+### Issues with this infrastructure:
+
+* Because the communication between the LB and the servers (as well as the servers and the monitoring system) is not encrypted.
+
+* It can interfere with other requests if several users need to change their password and only one server can do it.
+
+* I don't know this one.
