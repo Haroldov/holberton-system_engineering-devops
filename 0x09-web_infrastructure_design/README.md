@@ -22,7 +22,7 @@
 
 # 1. Distributed web infrastructure
 
-*
+* We are adding another server in orther to increase redundancy in the system and with this decrease SPOF and Downtime.
 
 * `Round Robin`: It assigns connection to a server going through each one until there are no more connections to assign.
 
