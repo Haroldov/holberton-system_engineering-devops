@@ -19,3 +19,26 @@
 * Its downtime it's not good since there is only one server, it has to be down while the software is updated.
 
 * Cannot scale if too much incoming traffic due to the implementation of just one server.
+
+# 1. Distributed web infrastructure
+
+*
+
+* `Round Robin`: It assigns connection to a server going through each one until there are no more connections to assign.
+
+* This `LB` enables Active-Active setup because of both servers are running. On the other hand, in a Active-Passive setup only one server is running and the other one is waiting for a failure.
+
+* A database Primary-Replica cluster works in the way that the replicas are only allowed to read and if they want to write the have to communicate with the primary node.
+
+* The difference between a primary node and a replica node is that the replica can't write, only read. On the other hand, the primary node can do both.
+
+### Issues with this infrastructure:
+
+* The `Load Balancer` is the `SPOF` here. Because in case of `LB` failure the whole system will be down.
+
+* This system has security issues. This means as there is no `firewall` anyone can have access directly to the servers. Moreover, it is not used the `HTTPS` protocol so the information is not encrypted.
+
+* This system has not monitoring. Hence, it cannot be applied for example a dynamic round robin, or there is no record of the QPS, the time taken to access the site, etc.
+
+
+This one has a special meaning because it assigns one or more connections immediately depending on real time monitoring. This depends on the current number of connections per node or the fastes node response time.
