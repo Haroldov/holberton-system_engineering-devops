@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # redirect with 301
 
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/haroldo.tech
 new_string="server_name 34.73.70.252;\n\trewrite ^\/(.*)$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
 cd /etc/nginx/sites-available
