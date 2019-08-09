@@ -2,7 +2,7 @@
 # redirect with 301
 
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/haroldo.tech
-new_string="server_name haroldo.tech;\n\trewrite ^\/(.*)$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
+new_string="server_name 34.73.70.252;\n\trewrite ^\/(.*)$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
 cd /etc/nginx/sites-available
 sudo sed -i "s/server_name _;/$new_string/" haroldo.tech
 sudo sed -i "s/listen 80 default_server;/listen 80;/" haroldo.tech
