@@ -8,7 +8,7 @@ cd /etc/nginx/sites-available
 sudo sed -i "s/server_name _;/$new_string/" default
 new_string="49i \\\terror_page 404 /custom_404.html;\n\tlocation /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
 sudo sed -i "$new_string" /etc/nginx/sites-available/default
-echo -e "Ceci n'est pas une page\n" | sudo tee /var/www/html/custom_404.html > /tmp/tmp.txt
+echo -e "Ceci n'est pas une page\n" | sudo tee /var/www/html/custom_404.html
 new_string="48i \\\t\tadd_header  X-Served-By  $HOSTNAME;"
 sudo sed -i "$new_string" /etc/nginx/sites-available/default
 sudo service nginx start
