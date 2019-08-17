@@ -19,4 +19,4 @@ backend ourwebsiteendpoint
 \tserver backend-server2 104.196.196.0:80 check"
 
 echo -e "$new_string" | sudo tee /etc/haproxy/haproxy.cfg
-
+sudo service haproxy restart
