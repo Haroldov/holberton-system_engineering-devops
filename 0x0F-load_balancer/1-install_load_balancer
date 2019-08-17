@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# install load balancer
+
+#sudo apt-get update
+#sudo apt-get -y install haroxy
+
+new_string="frontend ourwebsitefrontend
+\tbind *:80
+\tmode http
+\tdefault_backend ourwebsiteendpoint
+
+backend ourwebsiteendpoint
+\tbalance roundrobin
+\toption forwardfor
+\thttp-request set-header X-Forwarded-Port %[dst_port]
+\thttp-request add-header X-Forwarded-Proto https if { ssl_fc }
+\toption httpchk HEAD / HTTP/1.1\\\r\\\nHost:localhost
+\tserver backend-server1 34.73.70.252:80 check
+\tserver backend-server2 104.196.196.0:80 check"
+
+echo -e "$new_string" | sudo tee /etc/haproxy/haproxy.cfg
+
