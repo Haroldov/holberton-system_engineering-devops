@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
-0;95;0c# blabla
+# Display information about the records
 
 get_string () {
     str=$(dig $1 | grep -A1 "ANSWER SECTION:" | tail -n 1)
 }
 
-get_string $1
-list="www lb-01 web-01 web-02"
-for subdomain in $list; do
-    echo $str | awk '{ print "The subdomain " $2 " is a " $4 " record and points to " $5 }'
-    #    echo $str | awk "{ print $2 }"
-#    echo "$subdomain.$1"
-done
+if [ $# -eq 1 ]; then
+    list="www lb-01 web-01 web-02"
+    for subdomain in $list; do
+	get_string "$subdomain.$1"
+	echo "$str $subdomain" | awk '{ print "The subdomain " $6 " is a " $4 " record and points to " $5 }'
+    done
+else
+    get_string "$2.$1"
+    echo "$str $2" | awk '{ print "The subdomain " $6 " is a " $4 " record and points to " $5 }'
+fi
