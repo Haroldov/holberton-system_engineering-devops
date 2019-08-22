@@ -50,9 +50,5 @@ frontend www-https
 backend ourwebsiteendpoint
 	redirect scheme https if !{ ssl_fc }
 	balance roundrobin
-	option forwardfor
-	http-request set-header X-Forwarded-Port %[dst_port]
-	http-request add-header X-Forwarded-Proto https if { ssl_fc }
-	option httpchk HEAD / HTTP/1.1\r\nHost:localhost
 	server backend-server1 34.73.70.252:80 check
 	server backend-server2 104.196.196.0:80 check
