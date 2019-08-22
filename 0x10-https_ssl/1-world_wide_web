@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+0;95;0c# blabla
+
+get_string () {
+    str=$(dig $1 | grep -A1 "ANSWER SECTION:" | tail -n 1)
+}
+
+get_string $1
+list="www lb-01 web-01 web-02"
+for subdomain in $list; do
+    echo $str | awk '{ print "The subdomain " $2 " is a " $4 " record and points to " $5 }'
+    #    echo $str | awk "{ print $2 }"
+#    echo "$subdomain.$1"
+done
