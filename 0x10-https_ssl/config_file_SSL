@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# config file for SSL certificate
+1;5202;0c# config file for SSL certificate
 
 DOMAIN="haroldo.tech"
 sudo add-apt-repository ppa:certbot/certbot
@@ -9,3 +9,20 @@ sudo mkdir -p /etc/haproxy/ssl
 sudo chmod -R go-rwx /etc/haproxy/ssl
 cd /etc/haproxy/ssl && certbot certonly --standalone
 cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/ssl/$DOMAIN.pem
+
+#add this in the config file of the haproxy (/etc/haproxy/haproxy.cfg)
+#frontend www-http
+#   bind [PUBLIC_IP]:80
+#   reqadd X-Forwarded-Proto:\ http
+#   default_backend web-backend
+#frontend www-https
+#   bind [PUBLIC_IP]:443 ssl crt /etc/haproxy/ssl/wizardry.io.pem
+#   reqadd X-Forwarded-Proto:\ https
+#   default_backend web-backend
+#backend web-backend
+#   redirect scheme https if !{ ssl_fc }
+#   server web-1  [PRIVATE_IP]:80 check
+#   server web-2  [PRIVATE_IP]:80 check
+#add this under defaults
+#option forwardfor
+
