@@ -14,7 +14,7 @@ if __name__ == "__main__" and len(argv) == 2:
     data = {"userId": argv[1]}
     resp = requests.get(url, params=data).json()
     url = "https://jsonplaceholder.typicode.com/users/{}".format(argv[1])
-    emp_name = requests.get(url).json().get("name")
+    emp_name = requests.get(url).json().get("username")
     with open("{}.csv".format(argv[1]), 'w') as fd:
         fieldnames = ['id', 'name', 'status', 'title']
         writer = csv.DictWriter(fd, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
