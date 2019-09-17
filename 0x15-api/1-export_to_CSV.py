@@ -17,7 +17,8 @@ if __name__ == "__main__" and len(argv) == 2:
     emp_name = requests.get(url).json().get("username")
     with open("{}.csv".format(argv[1]), 'w') as fd:
         fieldnames = ['id', 'name', 'status', 'title']
-        writer = csv.DictWriter(fd, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+        writer = csv.DictWriter(fd, fieldnames=fieldnames,
+                                quoting=csv.QUOTE_ALL)
         for task in resp:
             completed = task.get("completed")
             writer.writerow({'id': '{}'.format(argv[1]),
