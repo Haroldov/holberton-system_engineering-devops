@@ -14,7 +14,8 @@ if __name__ == "__main__" and len(argv) == 2:
     for task in resp:
         if task.get("completed") is True:
             completed_tasks.append(task.get("title"))
-    print("Employee {} is done with tasks({}/{}):".format(
-        emp_name, len(completed_tasks), len(resp)))
-    for title in completed_tasks:
-        print("\t{} ".format(title))
+    if (emp_name) is not None:
+        print("Employee {} is done with tasks({}/{}):".format(
+            emp_name, len(completed_tasks), len(resp)))
+        for title in completed_tasks:
+            print("\t{} ".format(title))
