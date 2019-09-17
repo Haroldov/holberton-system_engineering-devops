@@ -14,9 +14,11 @@ if __name__ == "__main__":
         ids_user.update({user.get("id"): user.get("username")})
     fieldnames = ['task', 'completed', 'username']
     new_dict = {}
-    list_dicts = []
     for task in todos:
         tmp_id = task.get("userId")
+        list_dicts = new_dict.get(tmp_id)
+        if list_dicts is None:
+            list_dicts = []
         emp_name = ids_user.get(tmp_id)
         completed = task.get("completed")
         values = [task.get("title"), completed, emp_name]
