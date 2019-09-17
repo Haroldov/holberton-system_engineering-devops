@@ -4,7 +4,7 @@
 import requests
 from sys import argv
 
-if __name__ == "__main__":
+if __name__ == "__main__" and len(argv) == 2:
     url = "https://jsonplaceholder.typicode.com/todos"
     data = {"userId": argv[1]}
     resp = requests.get(url, params=data).json()
