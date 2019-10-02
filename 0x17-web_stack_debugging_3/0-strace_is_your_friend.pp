@@ -1,8 +1,4 @@
-include stdlib
-$fqdn = $facts['fqdn']
-file_line { 'wp-settings':
-  ensure => present,
-  path   => '/var/www/html/wp-settings.php',
-  line   => ".phpp",
-  match  => '.php',
+exec {"use fix":
+  command => "sed -i s/.phpp/php/g /var/www/html/wp-settings.php",
+  path => "/bin"
 }
